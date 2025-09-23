@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ka">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>სესია 1: Advanced CSS Layout & Styling</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Advanced CSS Layout & Styling</h1>
+            <p>სრული სასწავლო მასალა და პრაქტიკული დავალებები</p>
+        </header>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <nav class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('theory')">თეორია</button>
+            <button class="nav-tab" onclick="showSection('grid')">CSS Grid</button>
+            <button class="nav-tab" onclick="showSection('position')">პოზიციონირება</button>
+            <button class="nav-tab" onclick="showSection('transform')">Transform</button>
+            <button class="nav-tab" onclick="showSection('animation')">ანიმაცია</button>
+            <button class="nav-tab" onclick="showSection('bootstrap')">Bootstrap</button>
+            <button class="nav-tab" onclick="showSection('media')">მედია</button>
+            <button class="nav-tab" onclick="showSection('tasks')">დავალებები</button>
+        </nav>
+
+        <!-- თეორია -->
+        <div id="theory" class="content-section active">
+            <div class="card">
+                <h2>📚 სწავლის მიზნები</h2>
+                <p>ამ სესიის დასასრულისთვის სტუდენტები შეძლებენ:</p>
+                <ul style="margin-left: 2rem; margin-top: 1rem; line-height: 2;">
+                    <li>✅ შექმნან რთული განლაგებები CSS Grid-ის გამოყენებით</li>
+                    <li>✅ იცოდნენ და გამოიყენონ სხვადასხვა პოზიციონირების მეთოდები</li>
+                    <li>✅ განახორციელონ CSS ტრანსფორმაციები და გადასვლები</li>
+                    <li>✅ შექმნან CSS ანიმაციები keyframes-ის გამოყენებით</li>
+                    <li>✅ ეფექტურად გამოიყენონ CSS ცვლადები</li>
+                    <li>✅ ინტეგრირება Bootstrap ფრეიმვორკთან</li>
+                    <li>✅ განახორციელონ HTML5 აუდიო და ვიდეო ელემენტები</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>🎯 მთავარი თემები</h2>
+                <div class="demo-grid">
+                    <div class="demo-item">CSS Grid Layout</div>
+                    <div class="demo-item">პოზიციონირება</div>
+                    <div class="demo-item">Transform Property</div>
+                    <div class="demo-item">CSS Transitions</div>
+                    <div class="demo-item">CSS Animation</div>
+                    <div class="demo-item">CSS Variables</div>
+                    <div class="demo-item">Bootstrap</div>
+                    <div class="demo-item">HTML5 Media</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CSS Grid -->
+        <div id="grid" class="content-section">
+            <div class="card">
+                <h2>📐 CSS Grid Layout Module</h2>
+                <p><strong>CSS Grid</strong> არის ორგანზომილებიანი განლაგების სისტემა, რომელიც საშუალებას გაძლევთ
+                    შექმნათ რთული განლაგებები რიგებითა და სვეტებით.</p>
+
+                <h3>ძირითადი ცნებები:</h3>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><span class="highlight">Grid Container</span> - მშობელი ელემენტი display: grid-ით</li>
+                    <li><span class="highlight">Grid Items</span> - კონტეინერის პირდაპირი შვილები</li>
+                    <li><span class="highlight">Grid Lines</span> - განყოფილებები რომლებიც ქმნიან სტრუქტურას</li>
+                    <li><span class="highlight">Grid Tracks</span> - ადგილი ორ მეზობელ ხაზს შორის</li>
+                </ul>
+
+                <h3>Grid Container Properties:</h3>
+                <div class="code-block">
+                    .grid-container {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr); /* 3 თანაბარი სვეტი */
+                    grid-template-rows: 100px auto 50px; /* 3 რიგი კონკრეტული სიმაღლით */
+                    gap: 20px; /* ადგილი ელემენტებს შორის */
+                    grid-template-areas:
+                    "header header header"
+                    "sidebar main main"
+                    "footer footer footer";
+                    }
+                </div>
+
+                <h3>Grid Item Properties:</h3>
+                <div class="code-block">
+                    .grid-item {
+                    grid-column: 1 / 3; /* გაშლა 1-დან 3-მდე სვეტამდე */
+                    grid-row: 2 / 4; /* გაშლა 2-დან 4-მდე რიგამდე */
+                    grid-area: header; /* სახელდებული ზონის გამოყენება */
+                    }
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>ინტერაქტიული დემო</h3>
+                    <div class="demo-grid" id="demoGrid">
+                        <div class="demo-item">1</div>
+                        <div class="demo-item">2</div>
+                        <div class="demo-item">3</div>
+                        <div class="demo-item">4</div>
+                        <div class="demo-item">5</div>
+                        <div class="demo-item">6</div>
+                    </div>
+                    <button class="demo-button" onclick="changeGridLayout()">განლაგების შეცვლა</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- პოზიციონირება -->
+        <div id="position" class="content-section">
+            <div class="card">
+                <h2>📍 CSS პოზიციონირება</h2>
+                <p>CSS პოზიციონირება აკონტროლებს თუ როგორ იქნება ელემენტები განლაგებული მათ მშობელ კონტეინერში.</p>
+
+                <h3>Static (ნაგულისხმევი):</h3>
+                <div class="code-block">
+                    .static {
+                    position: static;
+                    }
+                    /* ელემენტები ბუნებრივად იშლებიან დოკუმენტში */
+                </div>
+
+                <h3>Relative:</h3>
+                <div class="code-block">
+                    .relative {
+                    position: relative;
+                    top: 10px;
+                    left: 20px;
+                    }
+                    /* პოზიცია ფარდობითია თავისი ბუნებრივი პოზიციისადმი */
+                </div>
+
+                <h3>Absolute:</h3>
+                <div class="code-block">
+                    .absolute {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    }
+                    /* პოზიცია ფარდობითია უახლოესი positioned წინაპრისადმი */
+                </div>
+
+                <h3>Fixed:</h3>
+                <div class="code-block">
+                    .fixed {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    }
+                    /* პოზიცია ფარდობითია viewport-ისადმი */
+                </div>
+
+                <h3>Sticky:</h3>
+                <div class="code-block">
+                    .sticky {
+                    position: sticky;
+                    top: 0;
+                    }
+                    /* იცვლება relative-სა და fixed-ს შორის scroll-ის მიხედვით */
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>პოზიციონირების დემო</h3>
+                    <div
+                        style="position: relative; height: 200px; background: var(--light-bg); border-radius: var(--border-radius);">
+                        <div id="positionDemo"
+                            style="width: 50px; height: 50px; background: var(--accent-color); position: absolute; top: 20px; left: 20px; transition: all 0.5s ease; border-radius: 4px;">
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="changePosition()">პოზიციის შეცვლა</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transform -->
+        <div id="transform" class="content-section">
+            <div class="card">
+                <h2>🔄 CSS Transform Property</h2>
+                <p>Transform საშუალებას გაძლევთ შეცვალოთ ელემენტების კოორდინატების სისტემა ბუნებრივი დოკუმენტის ნაკადის
+                    დარღვევის გარეშე.</p>
+
+                <h3>2D Transforms:</h3>
+                <div class="code-block">
+                    .transform-examples {
+                    transform: translate(50px, 100px); /* ელემენტის გადატანა */
+                    transform: rotate(45deg); /* ელემენტის ბრუნვა */
+                    transform: scale(1.5); /* ელემენტის მასშტაბირება */
+                    transform: skew(20deg, 10deg); /* ელემენტის დახრილება */
+                    }
+
+                    /* რამდენიმე transform ერთად */
+                    .multi-transform {
+                    transform: translate(50px, 50px) rotate(45deg) scale(1.2);
+                    }
+                </div>
+
+                <h3>3D Transforms:</h3>
+                <div class="code-block">
+                    .transform-3d {
+                    transform: rotateX(45deg);
+                    transform: rotateY(45deg);
+                    transform: translateZ(100px);
+                    transform: perspective(1000px) rotateY(45deg);
+                    }
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Transform დემო</h3>
+                    <div class="animated-box" id="transformBox"></div>
+                    <button class="demo-button" onclick="animateTransform()">Transform გაშვება</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ანიმაცია -->
+        <div id="animation" class="content-section">
+            <div class="card">
+                <h2>🎬 CSS ანიმაციები და გადასვლები</h2>
+
+                <h3>CSS Transitions:</h3>
+                <p>Transitions უზრუნველყოფს მშვიდ ანიმაციებს თვისებების ცვლილებებს შორის.</p>
+                <div class="code-block">
+                    .transition {
+                    transition: property duration timing-function delay;
+                    /* ან ცალ-ცალკე */
+                    transition-property: background-color, transform;
+                    transition-duration: 0.3s, 0.5s;
+                    transition-timing-function: ease-in-out;
+                    transition-delay: 0s, 0.1s;
+                    }
+                </div>
+
+                <h3>CSS Animations with @keyframes:</h3>
+                <div class="code-block">
+                    @keyframes animationName {
+                    0% { transform: translateX(0); }
+                    50% { transform: translateX(100px); }
+                    100% { transform: translateX(0); }
+                    }
+
+                    .animated-element {
+                    animation: animationName 2s infinite alternate;
+                    }
+                </div>
+
+                <h3>Animation Properties:</h3>
+                <div class="code-block">
+                    .animation {
+                    animation-name: slideIn;
+                    animation-duration: 1s;
+                    animation-timing-function: ease-in-out;
+                    animation-delay: 0.5s;
+                    animation-iteration-count: infinite;
+                    animation-direction: alternate;
+                    animation-fill-mode: forwards;
+                    }
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>ანიმაციის დემო</h3>
+                    <div class="animated-box" id="animationBox"></div>
+                    <button class="demo-button" onclick="startAnimation()">ანიმაციის გაშვება</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🎨 CSS Variables (Custom Properties)</h2>
+                <p>CSS ცვლადები საშუალებას გაძლევთ შეინახოთ მნიშვნელობები რომლებიც შეიძლება გამოიყენოთ მთელ
+                    stylesheet-ში.</p>
+
+                <div class="code-block">
+                    :root {
+                    --primary-color: #3498db;
+                    --secondary-color: #2ecc71;
+                    --font-size-large: 24px;
+                    --spacing-unit: 16px;
+                    }
+
+                    .component {
+                    color: var(--primary-color);
+                    font-size: var(--font-size-large);
+                    padding: calc(var(--spacing-unit) * 2);
+                    background: var(--undefined-var, #fallback-color);
+                    }
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>CSS Variables დემო</h3>
+                    <div
+                        style="background: var(--primary-color); color: var(--white); padding: 1rem; border-radius: var(--border-radius); margin: 1rem 0;">
+                        ეს ბლოკი იყენებს CSS ცვლადებს
+                    </div>
+                    <button class="demo-button" onclick="changeTheme()">თემის შეცვლა</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap -->
+        <div id="bootstrap" class="content-section">
+            <div class="card">
+                <h2>🚀 Bootstrap Framework</h2>
+                <p>Bootstrap არის პოპულარული CSS ფრეიმვორკი, რომელიც უზრუნველყოფს წინასწარ აშენებულ კომპონენტებსა და
+                    utilities-ს სწრაფი ვებ განვითარებისთვის.</p>
+
+                <h3>დაწყება:</h3>
+                <div class="code-block">
+                    <!-- CDN -->
+                    &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+                    rel="stylesheet"&gt;
+                    &lt;script
+                    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+                </div>
+
+                <h3>Grid System:</h3>
+                <div class="code-block">
+                    &lt;div class="container"&gt;
+                    &lt;div class="row"&gt;
+                    &lt;div class="col-md-8"&gt;მთავარი კონტენტი&lt;/div&gt;
+                    &lt;div class="col-md-4"&gt;გვერდითი პანელი&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                </div>
+
+                <h3>ხშირი კომპონენტები:</h3>
+                <div class="code-block">
+                    <!-- ნავიგაცია -->
+                    &lt;nav class="navbar navbar-expand-lg navbar-dark bg-primary"&gt;
+                    &lt;div class="container"&gt;
+                    &lt;a class="navbar-brand" href="#"&gt;ბრენდი&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;/nav&gt;
+
+                    <!-- ბარათები -->
+                    &lt;div class="card"&gt;
+                    &lt;div class="card-header"&gt;სათაური&lt;/div&gt;
+                    &lt;div class="card-body"&gt;
+                    &lt;h5 class="card-title"&gt;ბარათის სათაური&lt;/h5&gt;
+                    &lt;p class="card-text"&gt;კონტენტი&lt;/p&gt;
+                    &lt;button class="btn btn-primary"&gt;ღილაკი&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                </div>
+            </div>
+        </div>
+
+        <!-- მედია -->
+        <div id="media" class="content-section">
+            <div class="card">
+                <h2>🎵 HTML5 Audio და Video</h2>
+                <p>HTML5-მა შემოიღო ბუნებრივი აუდიო და ვიდეო ელემენტები მულტიმედიური კონტენტისთვის პლაგინების გარეშე.
+                </p>
+
+                <h3>Audio ელემენტი:</h3>
+                <div class="code-block">
+                    &lt;audio controls&gt;
+                    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+                    &lt;source src="audio.ogg" type="audio/ogg"&gt;
+                    თქვენი ბრაუზერი არ უჭერს მხარს audio ელემენტს.
+                    &lt;/audio&gt;
+                </div>
+
+                <h3>Video ელემენტი:</h3>
+                <div class="code-block">
+                    &lt;video width="640" height="360" controls poster="thumbnail.jpg"&gt;
+                    &lt;source src="video.mp4" type="video/mp4"&gt;
+                    &lt;source src="video.webm" type="video/webm"&gt;
+                    &lt;track kind="subtitles" src="subtitles.vtt" srclang="ka" label="ქართული"&gt;
+                    თქვენი ბრაუზერი არ უჭერს მხარს video tag-ს.
+                    &lt;/video&gt;
+                </div>
+
+                <div class="video-container">
+                    <video controls
+                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%23666'%3ECSS Video Demo%3C/text%3E%3C/svg%3E">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        თქვენი ბრაუზერი არ უჭერს მხარს video tag-ს.
+                    </video>
+                </div>
+
+                <h3>ძირითადი ატრიბუტები:</h3>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>controls:</strong> აჩვენებს დაკვრის კონტროლებს</li>
+                    <li><strong>autoplay:</strong> ვიდეო ავტომატურად იწყება ჩატვირთვისას</li>
+                    <li><strong>loop:</strong> ვიდეო ანიმაცია მეორდება</li>
+                    <li><strong>muted:</strong> ვიდეო ჩუმად იწყება</li>
+                    <li><strong>poster:</strong> სურათი რომელიც ჩანს სანამ ვიდეო ჩაიტვირთება</li>
+                    <li><strong>width და height:</strong> ვიდეოს ზომები</li>
+                </ul>
+            </div>
+        </div>
+        <!-- დავალებები -->
+        <div id="tasks" class="content-section">
+            <div class="card homework-section">
+                <h2>📝 პრაქტიკული დავალებები</h2>
+                <p>დავალებების შესრულება დაგეხმარებათ უკეთ გაიგოთ და გამოიყენოთ სესიის განმავლობაში განხილული
+                    კონცეფციები.
+                </p>
+
+                <div class="task-list">
+                    <div class="task-item">
+                        <h3>დავალება 1: CSS Grid განლაგების შექმნა</h3>
+                        <p>შექმენით ვებგვერდის განლაგება CSS Grid-ის გამოყენებით, რომელიც შეიცავს ჰედერს, ნავიგაციას,
+                            მთავარ კონტენტს და ფუტერს. გამოიყენეთ grid-template-areas ელემენტების დასაწყობად.</p>
+                    </div>
+
+                    <div class="task-item">
+                        <h3>დავალება 2: პოზიციონირების პრაქტიკა</h3>
+                        <p>შექმენით გვერდი, სადაც სხვადასხვა ელემენტები იყენებენ position: relative, absolute, fixed და
+                            sticky. დაამატეთ ინტერფეისის ელემენტები რომლებიც ინტერაქტიულად ცვლიან პოზიციას.</p>
+                    </div>
+
+                    <div class="task-item">
+                        <h3>დავალება 3: Transform და Transitions</h3>
+                        <p>შექმენით გალერეა სადაც გამოსახულებები გამოიყენებენ transform: scale და rotate ეფექტებს
+                            hover-ზე. დაამატეთ რბილი გადასვლები transform თვისებებზე.</p>
+                    </div>
+
+                    <div class="task-item">
+                        <h3>დავალება 4: CSS Animation</h3>
+                        <p>შექმენით ანიმირებული ლოგო ან ბანერი keyframes-ის გამოყენებით. ანიმაციამ უნდა შეიცავდეს
+                            მოძრაობას, ფერის ცვლილებას და ზომის ცვლილებას.</p>
+                    </div>
+
+                    <div class="task-item">
+                        <h3>დავალება 5: CSS Variables გამოყენება</h3>
+                        <p>შექმენით ვებგვერდი რომელიც იყენებს CSS ცვლადებს თემის ფერების,
+                            შრიფტების ზომებისა და სივრცეების განსაზღვრისთვის.
+                            დაამატეთ ღილაკი რომელიც შეცვლის თემის ფერებს დინამიურად.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
