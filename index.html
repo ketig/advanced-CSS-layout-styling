@@ -60,6 +60,346 @@
                     <div class="demo-item">HTML5 Media</div>
                 </div>
             </div>
+
+            <div class="card">
+                <h2>🏗️ CSS განლაგების ისტორია</h2>
+                <p>CSS განლაგების ევოლუციის გასაგებად მნიშვნელოვანია ვიცოდეთ როგორ განვითარდა ეს ტექნოლოგიები დროის
+                    მიმდინარეობაში:</p>
+
+                <h3>🕰️ დროის ხაზი:</h3>
+                <div style="border-left: 4px solid var(--primary-color); padding-left: 2rem; margin: 2rem 0;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <strong>1990s-2000s:</strong> Table-based layouts და Float positioning
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <strong>2009:</strong> CSS3 Flexbox-ის შემოღება (მაგრამ არც ისე პოპულარული)
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <strong>2012:</strong> CSS Grid-ის პირველი სპეციფიკაცია
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <strong>2017:</strong> CSS Grid-ის ფართო ბრაუზერული მხარდაჭერა
+                    </div>
+                    <div>
+                        <strong>დღეს:</strong> Modern CSS Layout System - Grid + Flexbox + Position
+                    </div>
+                </div>
+
+                <h3>💡 რატომ არის ეს მნიშვნელოვანი?</h3>
+                <p>თანამედროვე CSS layout ტექნიკები გვიჩვენებს:</p>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>მოქნილობა:</strong> შეგვიძლია შევქმნათ რთული განლაგებები მარტივი კოდით</li>
+                    <li><strong>Responsive Design:</strong> ადვილად ვადაპტირდებით სხვადასხვა ეკრანის ზომებზე</li>
+                    <li><strong>მანტენერებადობა:</strong> კოდი უფრო სუფთა და გასაგებია</li>
+                    <li><strong>პერფორმანსი:</strong> ბრაუზერები ოპტიმიზებულია ამ ახალ ტექნიკებისთვის</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>🎨 CSS Box Model - ფუნდამენტური ცნებები</h2>
+                <p>ყველა CSS layout ტექნიკის გასაგებად, პირველ რიგში უნდა ვიცოდეთ როგორ მუშაობს CSS Box Model:</p>
+
+                <div
+                    style="background: var(--light-bg); padding: 2rem; border-radius: var(--border-radius); margin: 1rem 0; text-align: center;">
+                    <div
+                        style="border: 3px solid var(--accent-color); padding: 2rem; display: inline-block; position: relative;">
+                        <div style="border: 3px solid var(--primary-color); padding: 1.5rem; background: var(--white);">
+                            <div style="background: var(--secondary-color); color: var(--white); padding: 1rem;">
+                                Content
+                            </div>
+                        </div>
+                        <div
+                            style="position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%); background: var(--accent-color); color: var(--white); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">
+                            Margin</div>
+                        <div
+                            style="position: absolute; top: 0.5rem; left: 50%; transform: translateX(-50%); background: var(--primary-color); color: var(--white); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">
+                            Border</div>
+                        <div
+                            style="position: absolute; bottom: 0.5rem; left: 50%; transform: translateX(-50%); background: var(--light-text); color: var(--white); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">
+                            Padding</div>
+                    </div>
+                </div>
+
+                <h3>Box Model-ის კომპონენტები:</h3>
+                <div class="code-block">
+                    <code>
+.box-model-example {
+  width: 200px;          /* Content area width */
+  height: 100px;         /* Content area height */
+  padding: 20px;         /* შიდა ღია ადგილი */
+  border: 5px solid red; /* საზღვრები */
+  margin: 10px;          /* გარე ღია ადგილი */
+}
+
+/* Total width = width + padding-left + padding-right + border-left + border-right + margin-left + margin-right */
+/* Total width = 200px + 20px + 20px + 5px + 5px + 10px + 10px = 270px */</code>
+                </div>
+
+                <h3>Box-sizing Property:</h3>
+                <div class="code-block">
+                    <code>
+/* Default behavior (content-box) */
+.content-box {
+  box-sizing: content-box; /* width/height მხოლოდ content-ს ითვალისწინებს */
+}
+
+/* Modern approach (border-box) */
+.border-box {
+  box-sizing: border-box; /* width/height შეიცავს content + padding + border */
+}
+
+/* Universal border-box (რეკომენდებული) */
+*, *::before, *::after {
+  box-sizing: border-box;
+}</code>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📏 CSS Units - ზომების ერთეულები</h2>
+                <p>სწორი units-ების არჩევა კრიტიკულია Responsive Design-ისთვის:</p>
+
+                <h3>🔢 Absolute Units (აბსოლუტური):</h3>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                    <div style="background: var(--light-bg); padding: 1rem; border-radius: var(--border-radius);">
+                        <strong>px (pixels)</strong><br>
+                        <small>ყველაზე ხშირად გამოყენებული, ზუსტი კონტროლისთვის</small>
+                    </div>
+                    <div style="background: var(--light-bg); padding: 1rem; border-radius: var(--border-radius);">
+                        <strong>pt (points)</strong><br>
+                        <small>ძირითადად print media-სთვის</small>
+                    </div>
+                    <div style="background: var(--light-bg); padding: 1rem; border-radius: var(--border-radius);">
+                        <strong>cm, mm, in</strong><br>
+                        <small>ფიზიკური ზომები, იშვიათად გამოიყენება</small>
+                    </div>
+                </div>
+
+                <h3>📐 Relative Units (ფარდობითი):</h3>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                    <div style="background: var(--light-bg); padding: 1rem; border-radius: var(--border-radius);">
+                        <strong>em</strong><br>
+                        <small>ფარდობითი მშობელი ელემენტის font-size-თან</small>
+                        <div class="code-block" style="margin-top: 0.5rem; font-size: 0.7rem;">
+                            <code>
+/* თუ parent-ის font-size: 16px */
+.child { font-size: 1.2em; } /* = 19.2px */</code>
+                        </div>
+                    </div>
+                    <div style="background: var(--light-bg); padding: 1rem; border-radius: var(--border-radius);">
+                        <strong>rem</strong><br>
+                        <small>ფარდობითი root ელემენტის font-size-თან</small>
+                        <div class="code-block" style="margin-top: 0.5rem; font-size: 0.7rem;">
+                            <code>
+/* თუ html font-size: 16px */
+.element { font-size: 1.5rem; } /* = 24px */</code>
+                        </div>
+                    </div>
+                    <div style="background: var(--light-bg); padding: 1rem; border-radius: var(--border-radius);">
+                        <strong>vw, vh</strong><br>
+                        <small>Viewport width/height-ის პროცენტი</small>
+                        <div class="code-block" style="margin-top: 0.5rem; font-size: 0.7rem;">
+                            <code>
+.full-screen { 
+  width: 100vw;  /* full viewport width */
+  height: 100vh; /* full viewport height */
+}</code>
+                        </div>
+                    </div>
+                    <div style="background: var(--light-bg); padding: 1rem; border-radius: var(--border-radius);">
+                        <strong>% (percentage)</strong><br>
+                        <small>ფარდობითი მშობელი ელემენტის ზომასთან</small>
+                        <div class="code-block" style="margin-top: 0.5rem; font-size: 0.7rem;">
+                            <code>
+.half-width { 
+  width: 50%; /* parent-ის width-ის ნახევარი */
+}</code>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>🎯 რომელი Units გამოვიყენოთ რაისთვის:</h3>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>px:</strong> borders, shadows, small fixed elements</li>
+                    <li><strong>rem:</strong> font-sizes, margins, paddings (main choice)</li>
+                    <li><strong>em:</strong> components რომლებიც იცვლება მშობელი font-size-ის მიხედვით</li>
+                    <li><strong>vw/vh:</strong> hero sections, full-screen elements</li>
+                    <li><strong>%:</strong> responsive widths, container-based sizing</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>🎭 CSS Selectors - მნიშვნელობა და Specificity</h2>
+                <p>CSS-ში სელექტორების სწორი გამოყენება განსაკუთრებით მნიშვნელოვანია რთული პროექტებში:</p>
+
+                <h3>🎯 Specificity Hierarchy (მნიშვნელობის იერარქია):</h3>
+                <div
+                    style="background: linear-gradient(135deg, #ff6b6b, #ffd93d); padding: 2rem; border-radius: var(--border-radius); color: var(--white); margin: 1rem 0;">
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: center;">
+                        <div style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px;">
+                            <h4>1000</h4>
+                            <p>Inline styles</p>
+                            <code
+                                style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.5rem; border-radius: 4px;">style="color: red"</code>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px;">
+                            <h4>100</h4>
+                            <p>IDs</p>
+                            <code
+                                style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.5rem; border-radius: 4px;">#header</code>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px;">
+                            <h4>10</h4>
+                            <p>Classes, Attributes, Pseudo-classes</p>
+                            <code
+                                style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.5rem; border-radius: 4px;">.menu, :hover</code>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px;">
+                            <h4>1</h4>
+                            <p>Elements, Pseudo-elements</p>
+                            <code
+                                style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.5rem; border-radius: 4px;">div, ::before</code>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>📊 Specificity გამოთვლის მაგალითები:</h3>
+                <div class="code-block"><code>
+/* Specificity: 0,0,0,1 (1) */
+h1 { color: blue; }
+
+/* Specificity: 0,0,1,1 (11) */
+h1.title { color: red; }
+
+/* Specificity: 0,1,1,1 (111) */
+#header h1.title { color: green; }
+
+/* Specificity: 1,0,0,0 (1000) */
+&lt;h1 style="color: purple;"&gt;...&lt;/h1&gt;
+
+/* !important ყველაზე ძლიერია (მაგრამ ავოიდ კეთება რეკომენდებული) */
+h1 { color: orange !important; }</code>
+                </div>
+
+                <h3>🎨 Best Practices:</h3>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>არ გამოიყენოთ !important</strong> - გამონაკლისის გარდა</li>
+                    <li><strong>ID-ების ნაცვლად Classes გამოიყენეთ</strong> - უფრო მოქნილია</li>
+                    <li><strong>BEM methodology</strong> - Block Element Modifier</li>
+                    <li><strong>CSS Architecture</strong> - OOCSS, SMACSS, ITCSS</li>
+                </ul>
+
+                <div class="code-block">
+                    <code>
+/* BEM Methodology Example */
+/* Block */
+.card { }
+
+/* Element */
+.card__header { }
+.card__body { }
+.card__footer { }
+
+/* Modifier */
+.card--large { }
+.card--featured { }
+.card__header--centered { }</code>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🌍 Modern CSS Features Overview</h2>
+                <p>ამ სესიაში ყველა თემა ერთმანეთს უკავშირდება და ქმნის ძლიერ განლაგების სისტემას:</p>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    <div
+                        style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 1.5rem; border-radius: var(--border-radius); color: var(--white);">
+                        <h4>🏗️ Layout Systems</h4>
+                        <p>CSS Grid + Flexbox ერთად ქმნიან ძლიერ layout სისტემას:</p>
+                        <ul style="margin-top: 1rem; line-height: 1.6;">
+                            <li>Grid - 2D layouts (rows + columns)</li>
+                            <li>Flexbox - 1D layouts (ერთი მიმართულება)</li>
+                            <li>Position - Precise control</li>
+                        </ul>
+                    </div>
+
+                    <div
+                        style="background: linear-gradient(135deg, #ff6b6b, #ffd93d); padding: 1.5rem; border-radius: var(--border-radius); color: var(--white);">
+                        <h4>🎬 Animation & Interaction</h4>
+                        <p>Transform + Transition + Animation ქმნიან interactive experiences:</p>
+                        <ul style="margin-top: 1rem; line-height: 1.6;">
+                            <li>Transform - Shape & position changes</li>
+                            <li>Transition - Smooth property changes</li>
+                            <li>Animation - Complex keyframe sequences</li>
+                        </ul>
+                    </div>
+
+                    <div
+                        style="background: linear-gradient(135deg, #4ecdc4, #44a08d); padding: 1.5rem; border-radius: var(--border-radius); color: var(--white);">
+                        <h4>🎨 Theming & Variables</h4>
+                        <p>CSS Variables საშუალებას გვაძლევს ვქმნათ maintainable themes:</p>
+                        <ul style="margin-top: 1rem; line-height: 1.6;">
+                            <li>Global design tokens</li>
+                            <li>Dynamic theme switching</li>
+                            <li>Component-based styling</li>
+                        </ul>
+                    </div>
+
+                    <div
+                        style="background: linear-gradient(135deg, #a8edea, #fed6e3); padding: 1.5rem; border-radius: var(--border-radius); color: var(--dark-text);">
+                        <h4>📱 Responsive Design</h4>
+                        <p>Mobile-first approach + Grid + Flexible units:</p>
+                        <ul style="margin-top: 1rem; line-height: 1.6;">
+                            <li>Media queries strategically</li>
+                            <li>Flexible grid systems</li>
+                            <li>Scalable typography</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>🔗 როგორ ვაკავშიროთ ეს ყველაფერი:</h3>
+                <div class="code-block">
+                    <code>
+/* Modern CSS Architecture Example */
+:root {
+  /* Design Tokens */
+  --primary-color: hsl(210, 50%, 50%);
+  --spacing-unit: 1rem;
+  --border-radius: 0.5rem;
+  --animation-duration: 0.3s;
+}
+
+.card {
+  /* Layout with Grid */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  
+  /* Styling with Variables */
+  background: var(--card-bg, white);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-unit);
+  
+  /* Animation */
+  transition: transform var(--animation-duration) ease;
+}
+
+.card:hover {
+  /* Transform on interaction */
+  transform: translateY(-2px) scale(1.02);
+}
+
+@media (max-width: 768px) {
+  /* Responsive adjustments */
+  .card {
+    grid-template-rows: auto;
+  }
+}</code>
+                </div>
+            </div>
         </div>
 
         <!-- CSS Grid -->
